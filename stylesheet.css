@@ -106,7 +106,9 @@ ul {
     overflow: scroll;
 }
 
-
+#game #text {
+    width: 100%;
+}
 #game #game_input p{
     display: inline-block;
     float:left;
