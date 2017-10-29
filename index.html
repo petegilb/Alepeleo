@@ -70,14 +70,79 @@
             
         </div>
         <script>
+            
+            var currentEvent = 0;
+            var dir = ["north","south","west","East"]
+            
             function myFunction(val)
             {
                 document.getElementById("input").value="";
                 var para = document.createElement("p");
                 var txt = "> " + val;
-            var t = document.createTextNode(txt);
-            para.appendChild(t);
-            document.getElementById("text").appendChild(para);
+                var t = document.createTextNode(txt);
+                para.appendChild(t);
+                document.getElementById("text").appendChild(para);
+                action(val);
+            }   
+            
+            function noVerb()
+            {
+                var para = document.createElement("p");
+                var t = document.createTextNode("There is not a valid verb!");
+                para.appendChild(t);
+                document.getElementById("text").appendChild(para);
+            }
+            
+            function noNoun()
+            {
+                var para = document.createElement("p");
+                var t = document.createTextNode("There is not a valid noun!");
+                para.appendChild(t);
+                document.getElementById("text").appendChild(para);
+            }
+            
+            function assignWord(res) {
+                for(i = 0; i < res.length; i++) {
+                    var currentWord = res[i];
+                    if(keyWords.find(currentWord)) {
+                        return currentWord;
+                    }
+                }
+                return "";
+            }
+            
+            
+            
+            function action(response)
+            {
+                var res = response.split(" ");
+                var keyWords = events[currentEvent].nouns;
+                var noun = assignWord(res);
+                
+                if(noun === "") {
+                    noNoun();
+                    return;
+                }
+                
+                if(move.find(res[0]))
+                {
+                    if(events[currentEvent].nextEvent(noun))
+                } else if (flee.find(res[0])) {
+                    
+                } else if (find.find(res[0])) {
+                    
+                } else if (get.find(res[0])) {
+                    
+                } else if (use.find(res[0])) {
+                    
+                } else if (talk.find(res[0])) {
+                    
+                } else if (fight.find(res[0])) {
+                    
+                } else {
+                    noVerb(res[0]);
+                    return;
+                }
             }
             
         </script>
