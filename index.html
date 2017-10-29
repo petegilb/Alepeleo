@@ -8,7 +8,6 @@
         
         <link type="text/css" rel="stylesheet" href="stylesheet.css">
         <script src="bath.js"></script>
-
     </head>
     <body>
         <!-- Make a container -->
@@ -30,6 +29,10 @@
             
             <div id="body"> 
                 <div id="game">
+                    <div id="game_input">
+                        <p>&nbsp;></p>
+                        <input id="input">
+                    </div>
                     <script>
                         
                     </script>
@@ -67,4 +70,19 @@
             
         </div>
     </body>
+    <script>
+        $(document).keydown(function (e) {
+            if(e.keyCode === 13){
+                alert("Enter was pressed ");
+                var text = document.getElementById("input");
+                insertBefore(text.value);
+                text.reset();
+            }
+        });
+        
+        function insertBefore(el) {
+            alert("Inserting: " + el + " before the input box!");
+            referenceNode.parentNode.insertBefore(el, document.getElementById("game"));
+        }
+    </script>
 </html>

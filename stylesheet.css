@@ -103,6 +103,19 @@ ul {
     background-color: whitesmoke;
     margin-top: 5%;
     margin-bottom: 5%;
+    overflow: scroll;
+}
+
+
+#game #game_input p{
+    display: inline-block;
+    float:left;
+}
+
+#game #game_input input {
+    display: inline-block;
+    width: 97%;
+    top: 0px;
 }
 
 #instructions h2 {
