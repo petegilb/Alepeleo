@@ -33,7 +33,7 @@
                     <div id="text"> </div>
                     <div id="game_input">
                         <p>></p>
-                        <input type="text" id="input" onchange="myFunction(this.value)">
+                        <input type="text" id="input" onchange="myFunction(this.value)"/>
                     </div>
                     
                 </div>
@@ -72,7 +72,7 @@
         <script>
             
             var currentEvent = 0;
-            var dir = ["north","south","west","East"]
+            var dir = ["north","south","west","east"]
             
             function myFunction(val)
             {
@@ -84,6 +84,13 @@
                 document.getElementById("text").appendChild(para);
                 action(val);
             }   
+            
+            function addText(txt) {
+                var para = document.createElement("p");
+                var t = document.createTextNode(txt);
+                para.appendChild(t);
+                document.getElementById("text").appendChild(para);
+            }
             
             function noVerb()
             {
@@ -101,43 +108,88 @@
                 document.getElementById("text").appendChild(para);
             }
             
-            function assignWord(res) {
+            function assignWord(res,keyWords) {
                 for(i = 0; i < res.length; i++) {
                     var currentWord = res[i];
-                    if(keyWords.find(currentWord)) {
+                    if(keyWords.indexOf(currentWord)>= 0) {
                         return currentWord;
                     }
                 }
                 return "";
             }
             
-            
+            function checkDirection(noun) {
+                //alert("entered Function");
+                //alert("" + noun + " equals north is: " + (noun === "north"));
+                if(noun === "north") {
+                    //alert("you reach here;");
+                    //alert(eventList[currentEvent].n + ". It is type: " + typeof(eventList[currentEvent].n))
+                    if(typeof eventList[currentEvent].n === 'number') {
+                        addText(eventList[eventList[currentEvent].n].story);
+                        return eventList[currentEvent].n;
+                    } else {
+                        addText(eventList[currentEvent].n);
+                    }
+                    
+                } else if (noun === "east") {
+                    if(typeof eventList[currentEvent].e === 'number') {
+                        addText(eventList[eventList[currentEvent].e].story);
+                        return eventList[currentEvent].e;
+                    } else {
+                        addText(eventList[currentEvent].e);
+                    }
+                    
+                } else if(noun === "west") {
+                    if(typeof eventList[currentEvent].w === 'number') {
+                        addText(eventList[eventList[currentEvent].w].story);
+                        return eventList[currentEvent].w;
+                    } else {
+                        addText(eventList[currentEvent].w);
+                    }
+                    
+                } else if (noun === "south") {
+                    if(typeof eventList[currentEvent].s === 'number') {
+                        addText(eventList[eventList[currentEvent].s].story);
+                        return eventList[currentEvent].s;
+                    } else {
+                        addText(eventList[currentEvent].s);
+                    }
+                }
+                return currentEvent;
+            }
             
             function action(response)
             {
+                response = response.toLowerCase();
                 var res = response.split(" ");
-                var keyWords = events[currentEvent].nouns;
-                var noun = assignWord(res);
+                var keyWords = (eventList[currentEvent].nouns).concat(dir);
+                var noun = assignWord(res,keyWords).toLowerCase();
+                
+                //alert("finding noun");
                 
                 if(noun === "") {
                     noNoun();
                     return;
                 }
                 
-                if(move.find(res[0]))
+                //alert("found noun! finding verb");
+                
+                if(move.indexOf(res[0])>=0)
                 {
-                    if(events[currentEvent].nextEvent(noun))
-                } else if (flee.find(res[0])) {
+                    //alert("about to enter function!");
+                    currentEvent = checkDirection(noun);
+                    alert(currentEvent);
+                } else if (flee.indexOf(res[0])>=0) {
                     
-                } else if (find.find(res[0])) {
+                } else if (find.indexOf(res[0])>=0) {
                     
-                } else if (get.find(res[0])) {
+                } else if (get.indexOf(res[0])>=0) {
                     
-                } else if (use.find(res[0])) {
+                } else if (use.indexOf(res[0])>=0) {
                     
-                } else if (talk.find(res[0])) {
+                } else if (talk.indexOf(res[0])>=0) {
                     
-                } else if (fight.find(res[0])) {
+                } else if (fight.indexOf(res[0])>=0) {
                     
                 } else {
                     noVerb(res[0]);

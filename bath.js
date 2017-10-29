@@ -11,7 +11,7 @@ function Event(index, n, e, w, s, nouns, story, hint){
 	this.w = w;
 	this.s = s;
 	this.nouns = nouns;
-	this.story = story;
+	this.story = story; 
 	this.repeat = function(){
 		return story;
 	}
