@@ -101,10 +101,8 @@ ul {
     margin: auto;
     border: 3px solid darkred;
     background-color: whitesmoke;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    margin: -17% 0 0 -25%;
+    margin-top: 10%;
+    margin-bottom: 10%;
 }
 
 #instructions h2 {
@@ -122,7 +120,6 @@ ul {
 #instructions {
     width: 500px;
     height: 150px;
-    margin-top: 60%;
     margin-right: 50px;
     border: 3px solid darkred;
     display: inline-block;
@@ -134,7 +131,6 @@ ul {
 #commands {
     width: 500px;
     height: 150px;
-    margin-top: 60%;
     display: inline-block;
     float: right;
     border: 3px solid darkred;
