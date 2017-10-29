@@ -4,7 +4,7 @@
 //news is an int of the place in the array, or a string telling why you can't go that way.
 //nouns is an array of strings that contains the keywords
 //story is a string saying what is happening when they get to that event
-function Event(index, n, e, w, s, nouns, story, hint,pickable,itemsPos){
+function Event(index, n, e, w, s, nouns, story,hint,pickable,itemsPos,response){
 	this.index = index;
 	this.n = n;
 	this.e = e;
@@ -20,11 +20,11 @@ function Event(index, n, e, w, s, nouns, story, hint,pickable,itemsPos){
 }
 
 //the first event filled in
-var event0 = new Event(0, "Nah you probably shouldn't go that way", 1, "Nah you probably shouldn't go that way", "Nah you probably shouldn't go that way", ["sun", "trees", "grass", "ground"], "You wake up in a field with tall grass all around you, naked. The sun is starting to rise. You see some trees in the direction of the sun in the distance.", "If I remember correctly does the sun rise in the east?",null,null);
+var event0 = new Event(0, "Nah you probably shouldn't go that way", 1, "Nah you probably shouldn't go that way", "Nah you probably shouldn't go that way", ["sun", "trees", "grass", "ground"], "You wake up in a field with tall grass all around you, naked. The sun is starting to rise. You see some trees in the direction of the sun in the distance.", "If I remember correctly does the sun rise in the east?",null,null,hint);
 //second event
-var event1 = new Event(1, 3, "You're blocked by a wall of trees.", 0, 2, ["tree", "axe", "path"], "You walk into the forest and you see some cut down trees around you. There’s a rusty axe stuck in a stump that looks as if it has been there for years. There’s a dirt path that is heading north and south. There’s some footprints on the path moving to the south.", "Go down the path in the direction of your choice! Anything stick out in the scene that you should get?","axe",null);
+var event1 = new Event(1, 3, "You're blocked by a wall of trees.", 0, 2, ["tree", "axe", "path"], "You walk into the forest and you see some cut down trees around you. There’s a rusty axe stuck in a stump that looks as if it has been there for years. There’s a dirt path that is heading north and south. There’s some footprints on the path moving to the south.", "Go down the path in the direction of your choice! Anything stick out in the scene that you should get?","axe",null,hint);
 //third event
-var event2 = new Event(2, 1, "There's no reason to go this way", "There's no reason to go this way", 4, ["woman", "widow", "clothes"], "You exit the forest and find yourself on the outskirts of a small village. You walk a bit closer and an old lady asks you, \“You crazy? Why are you running around naked this early in the morning?\”", "Talk to her!","clothing",null);
+var event2 = new Event(2, 1, "There's no reason to go this way", "There's no reason to go this way", 4, ["woman","lady" "widow", "clothes"], "You exit the forest and find yourself on the outskirts of a small village. You walk a bit closer and an old lady asks you, \“You crazy? Why are you running around naked this early in the morning?\”", "Talk to her!","clothing",null,"You don’t know??? Jesus, a young man like you is running around naked in the morning without a clue where you are? *mutters* must’ve been drinking… *. Let me at least grab you some clothes leftover from my dead husband.");
 //fourth event
 var event3 = new Event(3, 7, 6, 5, 1, ["mountain"], "You arrive at the base of a mountain. You feel the temperature dropping and it looks even colder on the mountain to the north. There’s a thick forest to the west that looks ominous. To the East you see a small clearing in the distance. What should you do?", "Go get clothes!",null,null);
 //fifth event

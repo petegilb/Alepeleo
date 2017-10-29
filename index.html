@@ -7,6 +7,7 @@
         <title>Alepeleo</title>
         
         <link type="text/css" rel="stylesheet" href="stylesheet.css">
+        <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
         <script src="bath.js"></script>
         <script src="Dong.js"></script>
     </head>
@@ -200,6 +201,7 @@
                 var noun = assignWord(res,keyWords).toLowerCase();
                 
                 //alert("finding noun");
+                alert(keyWords);
                 
                 if(noun === "") {
                     noNoun();
@@ -219,13 +221,15 @@
                     
                 } else if (get.indexOf(res[0])>=0) {
                     if(isGettable(noun) &&  (eventList[currentEvent].pickable != null && items.indexOf(noun) === -1)) {
-                        addText("*receieved " + noun + "*")
+                        addText("*receieved " + noun + "*");
                         items.push(noun);
                     }
                 } else if (use.indexOf(res[0])>=0) {
                     
                 } else if (talk.indexOf(res[0])>=0) {
+                    if((eventList[currentEvent].response).length > 0)
                     if(isGiven(noun) && eventList[currentEvent].pickable && items.indexOf(noun) === -1) {
+                        addText("*receieved " + noun + "*");
                         items.push(noun);
                     }
                 } else if (fight.indexOf(res[0])>=0) {
