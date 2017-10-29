@@ -77,7 +77,9 @@
             var items = [];
             var gettableItems = ["axe","medallion","orcium"];
             var givenItems = ["pelt","clothing"];
+            var response_variable = 0;
             
+            alert("Add Initial story text!");
             addText(eventList[currentEvent].story);
             
             function myFunction(val)
@@ -227,7 +229,9 @@
                 } else if (use.indexOf(res[0])>=0) {
                     
                 } else if (talk.indexOf(res[0])>=0) {
-                    if((eventList[currentEvent].response).length > 0)
+                   eventList[currentEvent].response; if((eventList[currentEvent].response).length > 0) {
+                        eventList.splice(0,1);
+                    }
                     if(isGiven(noun) && eventList[currentEvent].pickable && items.indexOf(noun) === -1) {
                         addText("*receieved " + noun + "*");
                         items.push(noun);

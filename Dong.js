@@ -4,7 +4,7 @@ var flee = ["flee","escape","leave","run","dodge","evade","avoid","circumvent","
 
 var find = ["find","search","puruse","inspect","examine","investigate","inquire","rummage","scrutinize","wild-goose chase","study","ransack","look","forage","grope","scan","check","interact"];
 
-var get = ["get","acquire","bring","earn","interact","wangle"];
+var get = ["get","acquire","bring","earn","interact","wangle","take"];
 
 var talk =["talk","speak","lecture","declare","converse","chat","say","communicate","utter","discuss","interact", "tickle-my-mother-fucking-pickle"];
 
