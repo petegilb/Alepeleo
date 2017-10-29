@@ -31,7 +31,7 @@
                 <div id="game">
                     <div id="game_input">
                         <p>&nbsp;></p>
-                        <input id="input">
+                        <input type="text" id="input" onchange="insertBefore(this.value)">
                     </div>
                     <script>
                         
@@ -70,19 +70,11 @@
             
         </div>
     </body>
-    <script>
-        $(document).keydown(function (e) {
-            if(e.keyCode === 13){
-                alert("Enter was pressed ");
-                var text = document.getElementById("input");
-                insertBefore(text.value);
-                text.reset();
-            }
-        });
-        
+    <script>       
         function insertBefore(el) {
+            document.getElementById("input").value = "";
             alert("Inserting: " + el + " before the input box!");
-            referenceNode.parentNode.insertBefore(el, document.getElementById("game"));
+            //referenceNode.parentNode.insertBefore(el, document.getElementById("game"));
         }
     </script>
 </html>
