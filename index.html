@@ -3,6 +3,7 @@
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta author="Alex Omeed Thomas">
         <title>Alepeleo</title>
         
         <link type="text/css" rel="stylesheet" href="stylesheet.css">
@@ -15,25 +16,50 @@
             <!-- Header -->
             
             <div id="header">
-                <h1>Text Adventure</h1>
+                <h1 class="webtext">Text Adventure</h1>
                 <ul>
-                    <li><p id="chosen">Play</p></li>
-                    <li><p>Instructions</p></li>
-                    <li><p>Commands</p></li>
-                    <li><p>Nouns</p></li>
+                    <li class="webtext"><a href="#container"><p><!--プレー-->Play</p></a></li>
+                    <li class="webtext"><a href="#instructions"><p><!--説明書-->Instructions</p></a></li>
+                    <li class="webtext"><a href="#commands"><p><!--コマンド-->Commands</p></a></li>
+                    <li class="webtext"><a href="#keywords"><p><!--キーワード-->Keywords</p></a></li>
                 </ul>               
             </div>
             
             <!-- Body -->
             
-            <div id="body">                
+            <div id="body"> 
                 <div id="game">
-                    
+                    <script>
+                        
+                    </script>
                 </div>
                 
                 <div id="instructions">
-                    <h2>Instructions</h2>
-                    <p>There are certain commands you will need to write in order to play the game. The commands will need to be in the form of: [verb] [noun] The game will look at your command and the current situation and try to carry out your action!</p>
+                    <h2 class="webtext">Instructions</h2>
+                    <br>
+                    <p class="webtext">There are certain commands you will need to write in order to play the game. The commands will need to be in the form of: [verb] [adjective] [noun] The game will look at your command and the current situation and try to carry out your action!</p>
+                </div>
+                
+                <div id="commands">
+                    <h2 class="webtext">Commands</h2>
+                    <br>
+                    <ul>
+                        <li class="webtext">/save<li>
+                        <li class="webtext">/restart</li>
+                        <li class="webtext">/hint</li>
+                    </ul>
+                </div>
+                
+                <div id="keywords">
+                    <h2 class="webtext">Keywords</h2>
+                    <br>
+                    <table>
+                        <thead>
+                            <th class="webtext">Nouns</th>
+                            <th class="webtext">Adjectives</th>
+                            <th class="webtext">Verbs</th>
+                        </thead>
+                    </table>
                 </div>
             </div>
             

@@ -7,21 +7,39 @@
 body {
     margin: 0px;
     padding: 0px;
+    height: 100%;
+    width: 100%;
     display: block;
 }
 
 #container{
-    background-color: aliceblue;
-    border-bottom: 3px solid;
-    border-color: darkred;
     height: 100%;
-    background-color: #f7f7f7;
+    border-bottom: 3px solid;
+    background-color: #333333;
+}
+
+.webtext {
+    font-family: monospace;
+    color: white;
+}
+
+.webtext p {
+    font-size: 20px;
 }
 
 /* Header */
 
+a {
+    text-decoration: none;
+    color: white;
+}
+
 #header{
     background-color: black;
+    width: 100%;
+    position: fixed;
+    border-bottom: 3px solid darkred;
+    z-index: 10;
 }
 
 h1 {
@@ -70,28 +88,65 @@ ul {
     line-height: 50px;
 }
 
-#chosen {
-    background-color: #3d3d3d;
-}
-
 /* Body */
 
 #body {    
-    /*border: 2px solid red;*/
-}
-
-#body h2 {
-    text-align: center;
+    height: 100%;
+    padding: 50px;
 }
 
 #game {
     width: 640px;
     height: 480px;
-    padding: 50px;
     margin: auto;
-    border: 1px solid black;
-    background-color: #adadad;
+    border: 3px solid darkred;
+    background-color: whitesmoke;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin: -17% 0 0 -25%;
 }
 
+#instructions h2 {
+    text-align: center;
+}
 
+#commands h2 {
+    text-align: center;
+}
 
+#keywords h2 {
+    text-align: center;
+}
+
+#instructions {
+    width: 500px;
+    height: 150px;
+    margin-top: 60%;
+    margin-right: 50px;
+    border: 3px solid darkred;
+    display: inline-block;
+    float: left;
+    margin-bottom: 50px;
+    padding: 25px;
+}
+
+#commands {
+    width: 500px;
+    height: 150px;
+    margin-top: 60%;
+    display: inline-block;
+    float: right;
+    border: 3px solid darkred;
+    margin-bottom: 50px;
+    padding: 25px;
+}
+
+#keywords {
+    width: 750px;
+    height: 300px;
+    clear: both;
+    margin: auto;
+    border: 3px solid darkred;
+    padding: 25px;
+}
