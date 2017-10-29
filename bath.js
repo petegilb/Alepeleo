@@ -12,6 +12,9 @@ function Event(name, locationx, locationy, nouns, story){
 		return "I am " + this.name + " and I am located at coordinates "
 		+ this.locationx + ", " + this.locationy;
 	}
+	this.repeat = function(){
+		return story;
+	}
 }
 
 //the first event filled in
