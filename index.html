@@ -73,6 +73,11 @@
             
             var currentEvent = 0;
             var dir = ["north","south","west","east"]
+            var items = [];
+            var gettableItems = ["axe","medallion","orcium"];
+            var givenItems = ["pelt","clothing"];
+            
+            addText(eventList[currentEvent].story);
             
             function myFunction(val)
             {
@@ -158,8 +163,37 @@
                 return currentEvent;
             }
             
+            function die()
+            {
+                currentEvent = 0;
+            }
+            
+            function checkItems(item)
+            {
+                if(items.indexOf(i) >= 0) {
+                    return true;
+                } else{
+                    return false;
+                }
+            }
+            
+            function isGettable(item) {
+                if(gettableItems.indexOf(item) >= 0) {
+                    return true;
+                }
+                return false;
+            }
+            
+            function isGiven(item) {
+                if(givenItems.indexOf(item) >= 0) {
+                    return true;
+                }
+                return false;
+            }
+            
             function action(response)
             {
+                alert("Action Method");
                 response = response.toLowerCase();
                 var res = response.split(" ");
                 var keyWords = (eventList[currentEvent].nouns).concat(dir);
@@ -178,17 +212,22 @@
                 {
                     //alert("about to enter function!");
                     currentEvent = checkDirection(noun);
-                    alert(currentEvent);
+                    //alert(currentEvent);
                 } else if (flee.indexOf(res[0])>=0) {
                     
                 } else if (find.indexOf(res[0])>=0) {
                     
                 } else if (get.indexOf(res[0])>=0) {
-                    
+                    if(isGettable(noun) &&  (eventList[currentEvent].pickable != null && items.indexOf(noun) === -1)) {
+                        addText("*receieved " + noun + "*")
+                        items.push(noun);
+                    }
                 } else if (use.indexOf(res[0])>=0) {
                     
                 } else if (talk.indexOf(res[0])>=0) {
-                    
+                    if(isGiven(noun) && eventList[currentEvent].pickable && items.indexOf(noun) === -1) {
+                        items.push(noun);
+                    }
                 } else if (fight.indexOf(res[0])>=0) {
                     
                 } else {
@@ -196,6 +235,8 @@
                     return;
                 }
             }
+            
+            
             
         </script>
     </body>
