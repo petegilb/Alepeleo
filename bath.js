@@ -2,6 +2,7 @@
 //locations are the x and y coordinates
 //nouns is an array of strings that contains the keywords
 //story is a string saying what is happening when they get to that event
+function Event(name, locationx, locationy, nouns, story){
 	this.name = name;
 	this.locationx = locationx;
 	this.locationy = locationy;
